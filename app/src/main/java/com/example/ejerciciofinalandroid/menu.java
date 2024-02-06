@@ -16,7 +16,7 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         TabLayout tabLayout =(TabLayout) findViewById(R.id.pestanias);
-        tabLayout.addTab(tabLayout.newTab().setText("Badminton"));
+        tabLayout.addTab(tabLayout.newTab().setText("Comprar"));
         tabLayout.addTab(tabLayout.newTab().setText("Ajedrez"));
         tabLayout.addTab(tabLayout.newTab().setText("Senderismo"));
 
