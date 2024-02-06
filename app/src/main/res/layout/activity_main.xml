@@ -85,6 +85,7 @@
         android:backgroundTint="@android:color/holo_orange_dark"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColor="#EA5121"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.781"
