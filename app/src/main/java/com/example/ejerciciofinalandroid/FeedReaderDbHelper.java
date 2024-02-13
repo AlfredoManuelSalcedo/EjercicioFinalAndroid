@@ -1,6 +1,5 @@
 package com.example.ejerciciofinalandroid;
 
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -10,7 +9,7 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + FeedReaderContract.FeedEntry.TABLE_NAME + " (" +
                     FeedReaderContract.FeedEntry._ID + " INTEGER PRIMARY KEY," +
                     FeedReaderContract.FeedEntry.COLUMN_NAME_NAME + " TEXT," +
-                    FeedReaderContract.FeedEntry.COLUMN_NAME_VALOR + " TEXT," +
+                    FeedReaderContract.FeedEntry.COLUMN_NAME_VALOR + " INTEGER," +
                     FeedReaderContract.FeedEntry.COLUMN_NAME_CANTIDAD + " INTEGER)";
 
     private static final String SQL_DELETE_ENTRIES =
@@ -19,8 +18,8 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "FeedReader.db";
 
-    public FeedReaderDbHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    public FeedReaderDbHelper(FirstFragment context) {
+        super(context.getContext(), DATABASE_NAME, null, DATABASE_VERSION);
     }
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_ENTRIES);

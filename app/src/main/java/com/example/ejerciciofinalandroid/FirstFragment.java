@@ -1,5 +1,7 @@
 package com.example.ejerciciofinalandroid;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -53,6 +55,19 @@ public class FirstFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        FeedReaderDbHelper dbHelper = new FeedReaderDbHelper(this);
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(FeedReaderContract.FeedEntry._ID,"1");
+        values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_NAME, "Bitcoin");
+        values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_VALOR, "41.598");
+        values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_CANTIDAD, "0.04808385824");
+
+        long newRowId = db.insert(FeedReaderContract.FeedEntry.TABLE_NAME, null, values);
     }
 
     @Override
